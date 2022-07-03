@@ -1,0 +1,318 @@
+#----DICCIONARIO DE ESTANDARIZACION----
+
+
+#Este es el archivo diccionario de todas las variables / clases / funciones.
+#Esta dividido por cada archivo y la data que contenga, toda deberia estar estandarizada.
+
+
+VARIABLES ESTANDAR
+
+$stmt = $statement  
+$qry = $query
+$database = $db
+$resultados = $result
+
+$Id = $id
+
+-------------------MODELOS-----------------------
+
+funciones.actualizarusuarios.php ================
+
+    VARIABLES
+
+nombre = name
+correo = email
+imagenUsuario = userImage
+idUsuario = userId
+usuarioImage = userImage
+
+
+
+    FUNCIONES
+
+UserUpt/
+updateUsuarioById() = updateUser
+getImagePathById() = getImagePath
+DeleteImageUsuario = deleteUserImage
+
+
+
+funciones.receta.php ==============================
+
+    VARIABLES
+
+tituloReceta o tituloPost = RecTitle
+descripcionReceta o descripcionPost = recDescription
+pasosReceta o pasosPost = recSteps
+imagenReceta o imagenPost = recImage
+dateReceta o fecha = recDate
+recetaImage = recImage
+
+    FUNCIONES
+
+
+Rec/
+createReceta = createRec
+getRecetaById = getRec
+getAllRecetas = getAllRec
+getRecetaByTitle = getRecByTitle
+getRecetaByUserId = getRecByUserId
+updateRecetaById = updateRecById
+deleteById = deleteRecById
+
+deleteTemporalStep = habian dos funciones con el mismo nombre
+    lo que hice fue que una se borran todas y en la otra es por
+    id entonces agregue el id al nombre = deleteTemporalStepById
+
+DeleteImageReceta = deleteImageRec
+
+
+funciones.referer.php========================
+
+No habia nada que estandarizar xxxxx
+
+funciones.user.php ==========================
+    
+    VARIABLES
+
+nombre = name
+correo = email
+imagen = image
+apellido = lastName
+
+    FUNCIONES
+
+
+User/
+updateUsuarioById() = updateUser
+getUsernameById() = getUsername
+getUserImagePathById() = getUserImagePath
+getUserRolById () = getUserRol
+deleteUserById() = deleteUser
+getUserNombreById() = getUserFirstName
+getUserEmailById() = GetUserEmail
+
+******************************
+
+
+--------------CONTROLADORES-------------
+
+admin/crl.funciones.admin.php===========
+
+    VARIABLES
+
+resultado = result
+
+    FUNCIONES
+
+User/
+getUserRolById () = getUserRol
+
+crl.config===============================
+
+    CLASES*
+
+Conexion = Connection ====== esta es la conexion a la db
+
+
+crl.actualizar.php========================
+
+    CLASES
+
+Receta = Rec
+Conexion = Connection
+
+    VARIABLES
+
+Receta = rec
+paso = recSteps
+pasosPost = postSteps
+
+    FUNCIONES
+
+Rec/
+getRecetaById = getRec
+deleteTemporalSteps = deleteTemporalStepById
+updateRecetaById = updateRecById
+
+crl.eliminar.receta.php ===================
+
+    CLASES
+
+Receta = Rec
+usuario = user
+
+    FUNCIONES
+
+Rec/
+getAllRecetas = getAllRec
+
+User/
+getUserRolById () = getUserRol
+
+    VARIABLES 
+
+recetas = rec
+recetaId = recId
+
+crl.login.php===============================
+
+    CLASES
+usuario = User
+
+crl.perfil.php
+
+    CLASES
+
+Usuarios = User
+Receta = Rec
+
+
+    FUNCIONES 
+ User/   
+getUsernameById() = getUsername
+getUserNombreById() = getUserFirstName
+getUserEmailById() = GetUserEmail
+getUserImagePathById() = getUserImagePath
+
+Rec/
+getRecetaByUserId = getRecByUserId
+
+crl.receta.php ===============================
+
+    VARIABLES
+receta = rec
+pasos = steps
+
+    CLASES
+Receta = Rec
+
+    FUNCIONES
+
+Rec/
+getRecetaById = getRec
+
+
+crl.registrar.receta.php ======================
+
+    VARIABLES
+tituloReceta o tituloPost = RecTitle
+descripcionReceta o descripcionPost = recDescription
+pasosReceta o pasosPost = recSteps
+Receta = rec
+
+    CLASES
+
+Receta = Rec
+
+    FUNCIONES
+
+Rec/
+deleteTemporalStep = deleteTemporalStepById
+createReceta = createRec
+
+crl.registro,usuiario.php=======================
+
+    CLASES
+Usuarios = User
+
+
+crl.resultaod.php ===============================
+
+    CLASES
+Recetas = Rec
+getRecetaByTitle = getRecByTitle
+
+    VARIABLES
+recetas = rec
+
+functions.php ===================================
+
+    CLASES
+Receta = Rec
+Conexion = Connection
+Usuarios = User
+
+    VARIABLES
+
+stmt = statement
+resultados = result
+
+    FUNCTIONS
+
+Rec/
+DeleteImageReceta = deleteImageRec 
+deleteReceta() = deleteRec
+deleteById = deleteRecById
+
+User/
+getUserImagePathById() = getUserImagePath
+deleteUserById() = deleteUser
+
+
+----------------------VISTAS----------------------
+
+dashboard.view.php ===============================
+
+    FUNCIONES
+
+Rec/
+deleteReceta() = deleteRec
+
+header.php========================================
+
+    CLASES
+
+Usuarios = User
+
+    FUNCIONES
+
+User/
+getUserImagePathById() = getUserImagePath
+getUsernameById() = getUsername
+getUserRolById () = getUserRol
+
+actualizar.view.php================================
+
+    CLASES
+Receta = Rec
+
+perfil.view.php ===================================
+
+    CLASES
+Usuarios = User
+    
+    FUNCION
+
+User/
+getUserImagePathById() = getUserImagePath
+
+    VARIABLES
+
+receta = rec
+nombre = name
+correo = email
+
+receta.view.php=====================================
+
+    VARIABLES
+receta = rec
+pasos = steps
+paso = step
+
+registrar.receta.view.php============================
+
+    CLASES
+Receta = Rec
+
+resultados.view.php =================================
+
+    VARIABLES
+recetas = rec
+receta = recipe
+
+
+/*****************MOSTRAR ERRORES EN PHP*****************************/
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);

@@ -1,0 +1,765 @@
+/*Aca creamos variables para poder hacer cambios mas rapidos si asi se desea, se puede utilizar dede 
+colores, tipos de letra y medidas como en pixeles, em, rem*/
+
+/* CSS para el boton de DarkMode */
+.button-crearReceta {
+  background-color: #2ba05a;
+  border: 0 solid #E5E7EB;
+  box-sizing: border-box;
+  color: #000000;
+  display: flex;
+  font-family: ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 1rem;
+  font-weight: 700;
+  justify-content: center;
+  line-height: 1.75rem;
+  padding: .75rem 1.65rem;
+  position: relative;
+  text-align: center;
+  text-decoration: none #000000 solid;
+  text-decoration-thickness: auto;
+  width: 100%;
+  max-width: 460px;
+  position: relative;
+  cursor: pointer;
+  transform: rotate(-2deg);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-crearReceta:focus {
+  outline: 0;
+}
+
+.button-crearReceta:after {
+  content: '';
+  position: absolute;
+  border: 1px solid #000000;
+  bottom: 4px;
+  left: 4px;
+  width: calc(100% - 1px);
+  height: calc(100% - 1px);
+}
+
+.button-crearReceta:hover:after {
+  bottom: 2px;
+  left: 2px;
+}
+
+@media (min-width: 768px) {
+  .button-crearReceta {
+    padding: .75rem 3rem;
+    font-size: 1.25rem;
+  }
+}
+
+
+#button_share img {
+	width: 36px;
+	box-shadow: 0;
+	padding: 6px;
+	display: inline;
+	border: 0;
+	}
+	
+:root {
+	--main-bg-color: #2ba05a;
+	/* background-color: #36c970; */
+	/* background-color: #f7543e; */
+	/* background-color: #d90a18; */
+	--primary-font-family: "Roboto", sans-serif;
+	--secondary-font-family: "Sriracha", cursive;
+}
+/* resetea los padding(margen interno) y los margin(margenes externos) */
+
+* {
+	box-sizing: border-box;
+}
+
+/* contenedor de toda la pagina web y asi poder acomodar los elementos header, main y footer usando display flex 
+https://developer.mozilla.org/es/docs/Web/CSS/display*/
+
+.wrap {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	min-height: 100vh;
+}
+
+/*estilos generales paa poder ser heredados en todos los contenedores de los bloques HTML que usen la misma clase*/
+.container {
+	width: 80%;
+	max-width: 1200px;
+	min-width: 400px;
+	margin: 0px auto;
+	display: flex;
+	justify-content: center;
+}
+
+
+body {
+	font-family: var(--primary-font-family);
+	background: url("https://i.imgur.com/Ufw33Fj.gif") rgb(252, 252, 252);
+}
+
+/*estilos del header que se hereda en todos las paginas que lo usen*/
+
+.header {
+	width: 100%;
+	min-width: 400px;
+	background-color: var(--main-bg-color);
+	position: sticky;
+    top: 0px;
+	z-index: 1;
+}
+.header .container {
+	display: flex;
+	width: 95%;
+	justify-content: space-between;
+	align-items: center;
+}
+.header .links {
+	display: flex;
+	align-items: center;
+}
+.header .imgContainer {
+	width: 30px;
+	height: 30px;
+	overflow: hidden;
+	border-radius: 50%;
+}
+
+.header .links .imgContainer a{
+	margin: 0px;
+	padding: 0px;
+}
+.imgContainer img {
+	width: auto;
+	height: 100%;
+}
+.header p,
+.header a {
+	margin: 5px 8px;
+}
+.header .links a {
+	text-decoration: none;
+	color: white;
+	padding: 10px;
+	transition: ease 0.5s;
+	border-radius: 5px;
+}
+/* solo 2 puntos aca nos permite el poder acceder a una pseudoclase y asi darle un comportamiento a una etiqueta */
+.header .links a:hover {
+	background-color: #37bf6e;
+}
+
+.header .links form {
+	width: 200px;
+	margin: 0px 10px;
+}
+.header form input {
+	width: 100%;
+	outline: none;
+	background-color: var(--main-bg-color);
+	border: 1px solid white;
+	border-radius: 5px;
+	padding: 4.5px;
+	caret-color: white;
+	color: white;
+}
+/* los "::" puntos significa que esto es una pseudoelemento, nos permite darle cierto comportamiento a elementos o colocar elementos antes o depues de una etiqueta seleccionada */
+.header form input::placeholder {
+	color: white;
+	font-size: 14px;
+}
+
+.header .logo a {
+	display: inline-block;
+	text-decoration: none;
+	font-family: var(--secondary-font-family);
+	color: white;
+	font-size: 23px;
+	margin: 9px 8px;
+}
+
+/*estilos del main login*/
+.main {
+	width: 100%;
+}
+
+.main.login,
+.main.register{
+	margin: 20px 0px;
+}
+
+.main.login .container,
+.main.register .container {
+	width: 70%;
+	align-items: center;
+	max-width: 715px;
+	flex-wrap: wrap;
+}
+
+.main.login .container .texto,
+.main.register .container .texto {
+	border-radius: 5px;
+	width: 260px;
+	height: 260px;
+	display: flex;
+	flex-wrap: wrap;
+	padding: 40px 40px;
+	background-color: white;
+}
+
+.main.login .container .texto h1,
+.main.login .container .texto p,
+.main.register .container .texto h1,
+.main.register .container .texto p {
+	width: 100%;
+}
+
+.main.login .container .texto h1,
+.main.register .container .texto h1 {
+	font-size: 39px;
+}
+
+.main.login .container .texto p,
+.main.register .container .texto p {
+	font-size: 16px;
+	color: #b8b7b7;
+}
+
+.main.login .container .formLogin,
+.main.register .container .formLogin {
+	border-radius: 5px;
+	width: 313px;
+	height: 313px;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	padding: 40px 20px;
+	box-shadow: 0px 0px 36px -8px rgba(0, 0, 0, 0.75);
+	-webkit-box-shadow: 0px 0px 36px -8px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 0px 0px 36px -8px rgba(0, 0, 0, 0.75);
+	background-color: var(--main-bg-color);
+}
+
+.error{
+    width: 100%;
+	padding: 10px;
+    margin-top: 20px;
+    border-radius: 25px;
+    background-color: rgb(243, 42, 42);
+	color: white;
+}
+
+.error ul{
+	margin: 0px;
+}
+
+.error ul li{
+    font-size: 12px;
+    color: var(--primary-color);
+}
+
+.error ul li a{
+    color: var(--primary-color);
+}
+
+/*Redimensiones de contenedores de registrar usuario porque contiene mas inputs y por ende debe de ser mas grande*/
+.main.register .container .texto {
+	height: 336px;
+}
+
+.main.register .container .formLogin {
+	max-width: 330px;
+	height: auto;
+}
+
+/* Estilos de formularios del login y de el registrar usuario*/
+.form-control {
+	border-radius: 0px;
+}
+.form-control:focus {
+	box-shadow: 0 0 0 0;
+}
+.formLogin .form-group {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+}
+.formLogin .form-group label,
+.formLogin .form-group input[type="text"],
+.formLogin .form-group input[type="password"],
+.formLogin .form-group input[type="email"] {
+	width: 100%;
+	padding: 3px 5px;
+	outline: none;
+	background-color: var(--main-bg-color);
+	color: white;
+}
+.formLogin .form-group input[type="text"],
+.formLogin .form-group input[type="password"],
+.formLogin .form-group input[type="file"],
+.formLogin .form-group input[type="email"] {
+	margin: 3px 0px;
+	border: none;
+	border-bottom: 1px solid var(--main-bg-color);
+	color: rgba(255, 255, 255, 0.5);
+}
+
+.formLogin .form-group input[type="text"]::placeholder,
+.formLogin .form-group [type="password"]::placeholder,
+.formLogin .form-group input[type="email"]::placeholder {
+	color: rgba(255, 255, 255, 0.5);
+}
+
+.formLogin .form-group input[type="text"]:focus,
+.formLogin .form-group [type="password"]:focus {
+	border-bottom: 1px solid white;
+}
+
+.formLogin .form-group input[type="submit"] {
+	width: 100%;
+	text-align: center;
+	background-color: var(--main-bg-color);
+	border: none;
+	padding: 6px;
+	border-radius: 5px;
+	color: white;
+	transition: ease 0.5s;
+	margin: 10px 0px;
+}
+
+/*Estilos del main del perfil*/
+
+.main.perfil .card {
+	margin-top: 30px;
+	width: 100%;
+	max-width: 820px;
+	background-color: white;
+	border-radius: 25px;
+	overflow: hidden;
+}
+
+.main.perfil .card .header{
+	width: 100%;
+	background-color: white;
+	display: flex;
+	justify-content: center;
+	padding: 20px 0px;
+	border-bottom: 1px solid #dfdfdf;
+	z-index: 0;
+}
+
+.main.perfil .card .profileContainer{
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	overflow: hidden;
+	display: flex;
+}
+
+.main.perfil .card .profileContainer img{
+	width: 100%;
+}
+
+.main.perfil .card .body{
+	width: 100%;
+	background-color: white;
+	display: flex;
+	justify-content: center;
+}
+
+.main.perfil .card .body table{
+	width: 80%;
+}
+
+.main.perfil .card .body tr{
+	width: 100%;
+	display: flex;
+	margin: 20px 0px;
+}
+
+.main.perfil .card .body td{
+	width: 50%;
+}
+.main.perfil .container{
+	flex-wrap: wrap;
+}
+
+.main.perfil .info{
+	text-align: center;
+	width: 100%;
+}
+
+.main.perfil .info h1,
+.main.perfil .info h2{
+	font-size: 20px;
+}
+.main.perfil .post{
+	width: 100%;
+}
+
+/*Estilos de input file que esta en registrar usuario para subir imagenes de perfil o imagenes en general*/
+.custom-input-file {
+	width: 100%;
+	border: 1px solid white;
+	border-radius: 5px;
+	background-color: var(--main-bg-color);
+	color: #fff;
+	cursor: pointer;
+	min-height: 30px;
+	overflow: hidden;
+	position: relative;
+}
+
+.formLogin .form-group .custom-input-file .input-file {
+	cursor: pointer;
+	left: -101px;
+	margin:2px 2px;
+	outline: 0 none;
+	position: absolute;
+}
+
+.formLogin .form-group input[type="submit"]:hover {
+	background-color: #37bf6e;
+}
+
+.formLogin p,
+.formLogin a {
+	color: white;
+	width: 100%;
+	text-align: center;
+	margin: 3px 0px;
+	font-size: 12px;
+}
+.formLogin p {
+	margin-top: 10px;
+}
+
+.formLogin a {
+	text-decoration: none;
+}
+.formLogin a:hover {
+	text-decoration: underline;
+}
+
+/*Estilos del index o pagina principal*/
+.main.index .container {
+	flex-wrap: wrap;
+}
+
+.post {
+	width: 100%;
+	margin: 30px 0px;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	background-color: #fff;
+	padding: 20px 50px;
+	border-radius: 5px;
+}
+
+.main h2 a {
+	text-decoration: none;
+	color: black;
+}
+
+.main p a {
+	text-decoration: none;
+	color: rgb(107, 107, 107);
+}
+
+.post .imgContainer {
+	width: 70%;
+}
+
+.post .imgContainer img {
+	width: 100%;
+	border-radius: 4px;
+}
+
+.post .texto{
+	width: 100%;
+	margin-top: 20px;
+}
+.post .date{
+	color: #949494;
+	font-size: 14px;
+}
+
+/*Estilos de boton agregar*/
+
+.newPost {
+	display: inline-block;
+	margin: 20px;
+	text-decoration: none;
+	color: #000;
+	padding: 10px 20px;
+	border-radius: 5px;
+	transition: ease 0.5s;
+}
+.newPost:hover{
+	color: #000;
+	background-color: rgb(219, 219, 219);
+}
+
+.crearReceta form{
+	width: 80%;
+	display: flex;
+	flex-direction: column;
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 5px;
+	margin: 10px 0px;
+}
+
+.tiny_image{
+	margin: 20px;
+	height: 200px;
+	display: block;
+}
+
+/* Estilos de crear receta*/
+
+.crearReceta form .rowi{
+	width: 100%;
+}
+.crearReceta form .rowi h1{
+	margin: 0;
+}
+
+.crearReceta form .rowi label{
+	margin: 20px 0px 10px 0px;
+	width: 100%;
+}
+
+.crearReceta form .rowi input[type="text"],
+.crearReceta form .rowi textarea{
+	width: 100%;
+	outline: none;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+.crearReceta form .rowi textarea,
+.crearReceta form .rowi input[type="text"]{
+	padding: 8px 8px;
+}
+.crearReceta form .rowi textarea{
+	max-height: 300px;
+	min-height: 300px;
+}
+
+.crearReceta form .rowi:nth-child(4){
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.crearReceta form .rowi:nth-child(4) label{
+	width: 100%;
+}
+
+.crearReceta form .itemsInput{
+	width: 70%;
+}
+
+.crearReceta form .items.Submit{
+	width: 30%;
+	display: inline-block;
+	margin-top: 10px;
+}
+
+.crearReceta form .rowi input[type="file"]{
+	margin-bottom: 20px;
+}
+
+.crearReceta form  input[type="submit"]{
+	display: inline-block;
+	width: 200px;
+	margin: 0 auto;
+	border: none;
+	padding: 6px;
+	border-radius: 5px;
+	transition: ease 0.5s;
+}
+
+.crearReceta form .items{
+	margin-top: 20px;
+}
+
+.crearReceta form .items ol{
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.crearReceta form .items ol .pasoRow{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	padding: 5px 0px;
+}
+
+.crearReceta form .items ol .pasoRow li{
+	margin-left: 20px;
+}
+
+.crearReceta form .items ol .pasoRow button{
+	border: none;
+	background-color: var(--main-bg-color);
+	color: #ffff;
+	border-radius: 5px;
+	padding: 3px 12px;
+}
+
+.crearReceta form .items ol .pasoRow a{
+	margin-left: 10px;
+}
+
+.crearReceta form .items ol .pasoRow .fa.fa-book{
+	font-size: 12px;
+	margin-right: 5px;
+}
+
+
+
+/* Estilos del dashboard*/
+.dashboard .container {
+	justify-content: space-between;
+}
+
+.dashboard .users, 
+.recipes{
+	background-color: #fff;
+	padding: 20px;
+	text-align: center;
+	border-radius: 5px;
+	display: flex;
+	flex-wrap: wrap;
+	margin: 10px;
+}
+
+.dashboard .users{
+	width: 40%;
+}
+
+.dashboard .users .row .links .disabled{
+	background-color: #ccc;
+}
+
+.dashboard .users .row .links a{
+	width: 100%;
+}
+.dashboard .recipes{
+	width: 60%;
+}
+
+.dashboard .recipes{
+	width: 100%;
+}
+
+.dashboard h2,
+.dashboard .row{
+	width: 100%;
+}
+.dashboard .row{
+	display: flex;
+	margin: 10px 0px;
+	align-items: baseline;
+}
+
+.dashboard .row h2,
+.dashboard .row .links{
+	font-size: 16px;
+	width: 50%;
+}
+.dashboard .row .links{
+	display: flex;
+}
+
+.dashboard .row .links form{
+	width: 50%;
+	margin-right:5px;
+	text-decoration: none;
+}
+
+.dashboard .row .links input[type="submit"]{
+	width: 100%;
+	border-radius: 5px;
+	height: 100%;
+	outline: none;
+	border: none;
+}
+
+.dashboard .row .links a{
+	width: 50%;
+	margin-right:5px;
+	padding: 5px 6px;
+	border-radius: 5px;
+	text-decoration: none;
+}
+
+.dashboard .row .links a:nth-child(1){
+	background-color: red;
+	color: white;
+}
+
+.dashboard .row .links input[type="submit"]{
+	background-color: blue;
+	color: white;
+}
+
+/*Estilos del footer*/
+.footer {
+	width: 100%;
+	min-width: 500px;
+	padding: 10px;
+	display: inline-block;
+	background-color: var(--main-bg-color);
+	font-size: 13px;
+}
+
+.footer .container {
+	width: 80%;
+	margin: 0px auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.footer .texto {
+	width: 100%;
+	text-align: center;
+	color: white;
+}
+
+.footer p {
+	margin: 10px;
+}
+.footer p span {
+	font-weight: 700;
+}
+.footer .redes {
+	width: 100%;
+}
+
+.footer .redes ul {
+	display: flex;
+	justify-content: center;
+	padding: 0px;
+	margin: 0;
+}
+
+.footer .redes ul li {
+	list-style: none;
+	margin: 0px 20px;
+}
+
+.footer .redes ul li a {
+	color: white;
+}
